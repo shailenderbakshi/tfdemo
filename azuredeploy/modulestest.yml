@@ -22,7 +22,7 @@ jobs:
       provider: 'azurerm'
       command: 'init'
       workingDirectory: '$(System.DefaultWorkingDirectory)/azuredeploy'
-      backendServiceArm: 'Shail-Subs(1)(2fae94b1-7a9f-489c-bf7c-877563309b5c)'
+      backendServiceArm: 'Shail-Subs'
       backendAzureRmResourceGroupName: '$(backendAzureRmResourceGroupName)'
       backendAzureRmStorageAccountName: '$(backendAzureRmStorageAccountName)'
       backendAzureRmContainerName: '$(backendAzureRmContainerName)'
@@ -34,7 +34,7 @@ jobs:
       provider: 'azurerm'
       command: 'plan'
       workingDirectory: '$(System.DefaultWorkingDirectory)/azuredeploy'
-      environmentServiceNameAzureRM: 'Shail-Subs(1)(2fae94b1-7a9f-489c-bf7c-877563309b5c)'
+      environmentServiceNameAzureRM: 'Shail-Subs'
 
   - task: TerraformTaskV3@3
     displayName: 'Terraform : Apply'
@@ -42,5 +42,5 @@ jobs:
       provider: 'azurerm'
       command: 'apply'
       workingDirectory: '$(System.DefaultWorkingDirectory)/azuredeploy'
-      environmentServiceNameAzureRM: 'Shail-Subs(1)(2fae94b1-7a9f-489c-bf7c-877563309b5c)'
+      environmentServiceNameAzureRM: 'Shail-Subs'
 
