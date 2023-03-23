@@ -23,3 +23,10 @@ module "Subnet"{
     subnet_prefixes        = var.subnet_prefixes
 
 }
+
+module "ADF"{
+    source                 = "./Modules/ADF"
+    resource_group_name    = module.resource_group.name
+    location               = var.location
+    
+}
