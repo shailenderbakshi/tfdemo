@@ -27,7 +27,7 @@ module "Subnet"{
 module "ADF"{
     source                 = "./Modules/ADF"
     rsg_Name               = module.resource_group.name
-    // location               = var.location
+    location               = var.location
     adf_name               = var.adf_name
     
 }
