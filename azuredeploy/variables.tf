@@ -28,6 +28,11 @@ variable "adf_name" {
     default = "gs-adf002"
 }
 
+variable "app_plan_name" {
+    description = "App service plan"
+    default = "appservice001"
+}
+
 variable "vnet_cidr" {
   type        = list(string)
   description = "The address space that is used by the virtual network."
