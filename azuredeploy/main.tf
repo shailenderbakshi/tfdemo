@@ -36,6 +36,6 @@ module "AppServicePlan"{
     source                 = "./Modules/AppServicePlan"
     rsg_Name               = module.resource_group.name
     location               = var.location
-    adf_name               = var.app_plan_name
+    app_plan_name          = var.app_plan_name
     
 }
