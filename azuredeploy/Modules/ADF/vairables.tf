@@ -8,3 +8,8 @@ variable "rsg_Name" {
   description = "Prefix for the Resource Groups."
   default = "RSG"
 }
+
+variable "location" {
+  description = "Defines the Tier to use for this virtual network"
+  type        = string
+}
