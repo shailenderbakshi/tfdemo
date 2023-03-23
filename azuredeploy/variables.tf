@@ -23,6 +23,11 @@ variable "rsg_Name" {
   default = "RSG"
 }
 
+variable "adf_name" {
+    description = "Azure data factory"
+    default = "gs-adf002"
+}
+
 variable "vnet_cidr" {
   type        = list(string)
   description = "The address space that is used by the virtual network."
