@@ -6,7 +6,6 @@ variable "adf_name" {
 variable "rsg_Name" {
   type        = string
   description = "Prefix for the Resource Groups."
-  default = "RSG"
 }
 
 variable "location" {
