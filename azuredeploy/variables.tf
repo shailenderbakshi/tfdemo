@@ -78,10 +78,10 @@ variable "resource_group_name" {
   description = "Name of resource group into which Databricks will be deployed"
 }
 
-variable "location" {
-  type        = string
-  description = "Location in which Databricks will be deployed"
-}
+// variable "location" {
+//   type        = string
+//   description = "Location in which Databricks will be deployed"
+// }
 
 variable "vnet_id" {
   type        = string
