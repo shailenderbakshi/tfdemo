@@ -71,6 +71,7 @@ variable "subnet_prefixes" {
 variable "workspace_name" {
   type        = string
   description = "Name of Databricks workspace"
+  default     = testwork-dbricks
 }
 
 variable "resource_group_name" {
