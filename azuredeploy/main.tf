@@ -39,3 +39,14 @@ module "AppServicePlan"{
     app_plan_name          = var.app_plan_name
     
 }
+
+module "databricks-workspace" {
+    source              = "./Modules/azure-databricks-workspace"
+    workspace_name      = var.workspace_name
+    rsg_Name            = module.resource_group.name
+    location            = var.location
+    vnet_id             = var.vnet_id
+    private_subnet_name = var.private_subnet_name
+    public_subnet_name  = var.public_subnet_name
+    tags                = var.tags
+}
