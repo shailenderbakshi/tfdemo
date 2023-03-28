@@ -89,10 +89,10 @@ variable "vnet_id" {
   description = "ID of existing virtual network into which Databricks will be deployed"
 }
 
-variable "private_subnet_name" {
-  type        = string
-  description = "Name of the private subnet"
-}
+// variable "private_subnet_name" {
+//   type        = string
+//   description = "Name of the private subnet"
+// }
 
 variable "public_subnet_name" {
   type        = string
