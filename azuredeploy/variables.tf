@@ -74,10 +74,10 @@ variable "workspace_name" {
   default     = "testwork-dbricks"
 }
 
-variable "resource_group_name" {
-  type        = string
-  description = "Name of resource group into which Databricks will be deployed"
-}
+// variable "resource_group_name" {
+//   type        = string
+//   description = "Name of resource group into which Databricks will be deployed"
+// }
 
 // variable "location" {
 //   type        = string
