@@ -84,10 +84,10 @@ variable "workspace_name" {
 //   description = "Location in which Databricks will be deployed"
 // }
 
-variable "vnet_id" {
-  type        = string
-  description = "ID of existing virtual network into which Databricks will be deployed"
-}
+// variable "vnet_id" {
+//   type        = string
+//   description = "ID of existing virtual network into which Databricks will be deployed"
+// }
 
 // variable "private_subnet_name" {
 //   type        = string
