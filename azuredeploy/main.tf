@@ -40,13 +40,13 @@ module "AppServicePlan"{
     
 }
 
-// module "databricks-workspace" {
-//     source              = "./Modules/azure-databricks-workspace"
-//     workspace_name      = var.workspace_name
-//     resource_group_name = module.resource_group.name
-//     location            = var.location
-//     // vnet_id             = var.vnet_id
-//     // private_subnet_name = var.private_subnet_name
-//     // public_subnet_name  = var.public_subnet_name
-//     tags                = var.tags
-// }
+module "databricks-workspace" {
+    source              = "./Modules/azure-databricks-workspace"
+    workspace_name      = var.workspace_name
+    resource_group_name = module.resource_group.name
+    location            = var.location
+    // vnet_id             = var.vnet_id
+    // private_subnet_name = var.private_subnet_name
+    // public_subnet_name  = var.public_subnet_name
+    // tags                = var.tags
+}
