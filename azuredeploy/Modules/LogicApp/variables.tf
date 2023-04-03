@@ -14,3 +14,8 @@ variable "rsg_Name" {
   description = "Prefix for the Resource Groups."
   default = ""
 }
+
+variable "resource_group_name" {
+  type        = string
+  description = "Name of resource group into which Databricks will be deployed"
+}
