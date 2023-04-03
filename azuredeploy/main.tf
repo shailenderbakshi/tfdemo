@@ -56,3 +56,5 @@ module "logic-apps" {
     workspace_name      = var.logicapp_name
     resource_group_name = module.resource_group.name
     location            = var.location
+
+}
