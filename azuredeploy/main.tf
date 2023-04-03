@@ -50,3 +50,9 @@ module "databricks-workspace" {
     // public_subnet_name  = var.public_subnet_name
     // tags                = var.tags
 }
+
+module "logic-apps" {
+    source              = "./Modules//LogicApp"
+    workspace_name      = var.logicapp_name
+    resource_group_name = module.resource_group.name
+    location            = var.location
