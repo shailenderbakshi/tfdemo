@@ -105,6 +105,12 @@ variable "workspace_name" {
 //   default     = {}
 // }
 
+variable "logicapp_name" {
+  description = "The number of logic app to be deployed"
+  type        = string
+  default     = "firstapp"
+}
+
 ########################################################################
 # APP GATEWAY
 ########################################################################
