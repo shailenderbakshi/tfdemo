@@ -53,7 +53,7 @@ module "databricks-workspace" {
 
 module "logic-apps" {
     source              = "./Modules//LogicApp"
-    workspace_name      = var.logicapp_name
+    logicapp_name       = var.logicapp_name
     resource_group_name = module.resource_group.name
     location            = var.location
 
