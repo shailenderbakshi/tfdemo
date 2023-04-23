@@ -60,3 +60,4 @@ module "logic-apps" {
 }
 
 test
+test2
