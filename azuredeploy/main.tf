@@ -58,3 +58,5 @@ module "logic-apps" {
     location            = var.location
 
 }
+
+test
