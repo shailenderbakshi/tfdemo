@@ -69,14 +69,22 @@ jobs:
       uses: actions/checkout@v3
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v1
-      with:
-        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+    # - name: Setup Terraform
+    #   uses: hashicorp/setup-terraform@v1
+    #   with:
+    #     cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
+      id: init
       run: terraform init
+      env:
+        ARM_CLIENT_ID: ${{ secrets.CLIENT_ID }} # This doesn't have to be a secret. Client IDs are not sensitive.
+        ARM_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        ARM_SUBSCRIPTION_ID: "2fae94b1-7a9f-489c-bf7c-877563309b5c"
+        ARM_TENANT_ID: "92df0fcf-acf6-4e0b-86ab-9fe4a46f8733"
+      working-directory: ./azuredeploy
+      shell: bash
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
@@ -84,7 +92,28 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan -input=false
+      id: plan
+      run: |
+        terraform plan -input=false -no-color -out tf.plan
+      env:
+        ARM_CLIENT_ID: ${{ secrets.CLIENT_ID }} 
+        ARM_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        ARM_SUBSCRIPTION_ID: "2fae94b1-7a9f-489c-bf7c-877563309b5c"
+        ARM_TENANT_ID: "92df0fcf-acf6-4e0b-86ab-9fe4a46f8733"
+      working-directory: ./azuredeploy # Use your environment folder
+      shell: bash
+    
+    - name: Terraform Apply
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      run: terraform apply -input=false tf.plan
+      env:
+        ARM_CLIENT_ID: ${{ secrets.CLIENT_ID }} 
+        ARM_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        ARM_SUBSCRIPTION_ID: "2fae94b1-7a9f-489c-bf7c-877563309b5c"
+        ARM_TENANT_ID: "92df0fcf-acf6-4e0b-86ab-9fe4a46f8733"
+      working-directory: ./staging # Use your environment folder
+      shell: bash
+
 
       # On push to "master", build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
