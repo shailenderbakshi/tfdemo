@@ -58,6 +58,3 @@ module "logic-apps" {
     location            = var.location
 
 }
-
-test
-test2
