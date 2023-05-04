@@ -12,10 +12,10 @@ terraform {
  }
 
     backend "azurerm" {
-        resource_group_name  = var.rgname
-        storage_account_name = var.storage_account_name
-        container_name       = var.container_name
-        key                  = var.tfstatekey
+        resource_group_name  = AZLZ-project-tstate-rg
+        storage_account_name = azlzprojecttfstate22513
+        container_name       = landingzonetfstate
+        key                  = actions.tfstate
     }
 }
 
